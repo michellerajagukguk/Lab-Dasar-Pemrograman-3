@@ -1,22 +1,24 @@
-program baris;
+program faktorialrekursif;
 uses crt;
 
-var 
-i, j : integer;
+var
+  n: integer;
 
+function faktorial(n: integer): longint;
 begin
-clrscr;
-
-write('masukkan jumlah baris : ');
-
-for i := 5 downto 1 do 
-begin
-    for j := 1 to i do
-    begin
-        write('*');
-    end;
-    writeln;
+  if n = 0 then
+    faktorial := 1
+  else
+    faktorial := n * faktorial(n - 1);
 end;
-readln;
 
+begin
+  clrscr;
+
+  write('Masukkan nilai: ');
+  readln(n);
+
+  writeln('Hasil faktorial: ', faktorial(n));
+
+  readln;
 end.

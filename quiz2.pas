@@ -1,15 +1,37 @@
-program perkalian;
+program bilanganprima;
+uses crt;
 
-var 
-i: integer;
+var
+  angka: integer;
 
+function cekprima(n: integer): boolean;
+var
+  i: integer;
 begin
-for i := 1 to 100 do
-begin
-    if (i mod 3 <> 0) then
+  if n < 2 then
+    cekprima := false
+  else
+  begin
+    cekprima := true;
+
+    for i := 2 to n div 2 do
     begin
-        writeln(i, ' x 3 = ', i * 3);
+      if n mod i = 0 then
+        cekprima := false;
     end;
+  end;
 end;
-readln;
+
+begin
+  clrscr;
+
+  write('Masukkan angka: ');
+  readln(angka);
+
+  if cekprima(angka) then
+    writeln('Bilangan Prima')
+  else
+    writeln('Non-Prima');
+
+  readln;
 end.
